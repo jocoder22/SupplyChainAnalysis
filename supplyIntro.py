@@ -14,3 +14,5 @@ model += 4.5*A + 2*B <= 280
 model += 0.5*A + 1*B <= 110
 model += 2*B <= 80
 
+model.solve()
+
