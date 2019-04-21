@@ -26,4 +26,10 @@ for v in model.variables():
 maxprofit = ch.LpProblem('Maximize Profit', ch.LpMaximize)
 AA = ch.LpVariable("AA", lowBound=0, cat="Integer")
 AB = ch.LpVariable("AB", lowBound=0, cat="Integer")
+AC = ch.LpVariable("AC", lowBound=0, cat="Integer")
+
+Beers = ["AA", "AB", "AC"]
+Cost = [6, 8, 11]
+costdict = dict(zip(Beers, Cost))
+Beersdict = {"AA": AA, "AB": AB, "AC": AC}
 
