@@ -33,3 +33,14 @@ Cost = [6, 8, 11]
 costdict = dict(zip(Beers, Cost))
 Beersdict = {"AA": AA, "AB": AB, "AC": AC}
 
+maxprofit += ch.LpSum([Beersdict[i] + costdict[i] for i in Beers])
+
+maxprofit += 3.4*AA + 2*AB + 1*AC <= 80
+maxprofit += 4*AA +  1*AC <= 20
+maxprofit += 2*AB <=  1*AC 
+
+
+
+
+
+
