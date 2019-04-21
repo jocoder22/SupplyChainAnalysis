@@ -20,3 +20,10 @@ print(f'Status: {ch.LpStatus[model.status]}')
 for v in model.variables():
     print(f'{v.name} = {v.varValue}')
 
+
+
+# Profit maximization problem
+maxprofit = ch.LpProblem('Maximize Profit', ch.LpMaximize)
+AA = ch.LpVariable("AA", lowBound=0, cat="Integer")
+AB = ch.LpVariable("AB", lowBound=0, cat="Integer")
+
