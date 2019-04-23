@@ -17,3 +17,11 @@ vardict = pul.LpVariable.dicts('Storelist', keys, lowBound=0, cat='Integer')
 # Define objective function
 model += pul.lpSum([costdict[(w, s)] * vardict[(w, s)] 
                 for s in stores for w in warehouse])
+
+for s in stores:
+    model += pul.lpSum([vardict[(w, s)] for w in warehouse]) == demands[s]
+
+model.solve()
+print('Status', pul.LpStatus[model.status])
+for v in model.variables():
+    print(f'{v.name} = {v.varValue}')
