@@ -9,7 +9,7 @@ demands = [3000, 1200, 7000, 4100, 5600]
 cost = [300, 800, 100, 230, 90, 600, 240, 510]
 
 demansdict = dict(zip(stores, demands))
-costdict = dict(zip[(x, y) for x in warehouse for y in stores], cost))
+costdict = dict(zip[(x, y) for x in warehouse for y in stores], cost)
 
 keys = [(w, s) for w in warehouse for s in stores]
 
