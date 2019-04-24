@@ -26,3 +26,5 @@ model.solve()
 print(f'Status: {LpStatus[model.status]}')
 for v in model.variables():
     print(f'{v.name} = {v.varValue}')
+
+print(f'Objective = {value(model.objective)}')
