@@ -13,3 +13,6 @@ price = dict(zip(iron, cost))
 lbsdict = dict(zip(iron, lbs))
 magdict = dict(zip(iron, mag))
 sildict = dict(zip(iron, sil))
+
+model = LpProblem('Max Profit', LpMinimize)
+model += lpSum([price[i] * x[i] for i in iron])
