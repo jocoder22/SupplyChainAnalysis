@@ -16,3 +16,13 @@ sildict = dict(zip(iron, sil))
 
 model = LpProblem('Max Profit', LpMinimize)
 model += lpSum([price[i] * x[i] for i in iron])
+
+model += lpSum([lbsdict[i] * x[i] for i in iron]) == 1000
+model += lpSum([lbsdict[i] * x[i] for i in iron]) >= 4.5
+model += lpSum([sildict[i] * x[i] for i in iron]) >= 32.5
+model += lpSum([sildict[i] * x[i] for i in iron]) <= 55.0
+
+model.solve()
+print(f'Status: {LpStatus[model.status]}')
+for v in model.variables():
+    print(f'{v.name} = {v.varValue}')
