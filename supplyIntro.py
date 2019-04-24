@@ -35,9 +35,9 @@ Beersdict = {"AA": AA, "AB": AB, "AC": AC}
 
 maxprofit += ch.lpSum([Beersdict[i] + costdict[i] for i in Beers])
 
-maxprofit += 2*AA + 3*AB + 1*AC <= 180
-maxprofit += 2*AA + 1*AC <= 80
-maxprofit += 1.5*AB <=  1*AC 
+maxprofit += 1*AA + 2*AB + 1*AC <= 180
+maxprofit += 0.5*AA + 1*AC <= 100
+maxprofit += 1*AB  + 1*AC >= 50
 
 maxprofit.solve()
 print(f'Maxprofit Status: {ch.LpStatus[maxprofit.status]}')
