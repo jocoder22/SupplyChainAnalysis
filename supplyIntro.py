@@ -22,6 +22,16 @@ for v in model.variables():
 
 
 
+# Using LpVariable.dicts()
+bread = ['A', 'B']
+cost = dict(zip(bread, [10, 20]))
+
+var_dict = ch.LpVariable.dicts('Bread_', bread, lowBound=0, cat='Integer')
+
+
+
+
+
 # Profit maximization problem
 maxprofit = ch.LpProblem('Maximize Profit', ch.LpMaximize)
 AA = ch.LpVariable("AA", lowBound=0, cat="Integer")
