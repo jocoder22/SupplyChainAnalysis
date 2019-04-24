@@ -19,7 +19,7 @@ model.solve()
 print(f'Status: {ch.LpStatus[model.status]}')
 for v in model.variables():
     print(f'{v.name} = {v.varValue}')
-
+print(f'Objective = {ch.value(model.objective)}', end=sp)
 
 
 # Using LpVariable.dicts()
@@ -40,6 +40,15 @@ for i in demand:
     model2 += ch.lpSum([i * var_dict[d] for d in var_dict]) <= 60
 for i in discount:
     model2 += ch.lpSum([i * var_dict[d] for d in var_dict]) <= 22
+
+model2.solve()
+print(f'Status: {ch.LpStatus[model2.status]}')
+for v in model2.variables():
+    print(f'{v.name} = {v.varValue}')
+
+print(f'Objective = {ch.value(model2.objective)}', end=sp)
+
+
 
 
 
