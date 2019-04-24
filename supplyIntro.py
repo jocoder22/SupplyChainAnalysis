@@ -25,10 +25,21 @@ for v in model.variables():
 # Using LpVariable.dicts()
 bread = ['A', 'B']
 cost = dict(zip(bread, [10, 20]))
+space = [0.5, 1]
+demand = [1, 2.5]
+discount = [1, 2]
 
 var_dict = ch.LpVariable.dicts('Bread_', bread, lowBound=0, cat='Integer')
 
+model2 = ch.LpProblem('Maximium Profit', ch.LpMaximize)
+model2 += ch.lpSum(cost[i] * var_dict[i] for i in bread)
 
+for i in space:
+    model2 += ch.lpSum([i * var_dict[d] for d in var_dict]) <= 30
+for i in demand:
+    model2 += ch.lpSum([i * var_dict[d] for d in var_dict]) <= 60
+for i in discount:
+    model2 += ch.lpSum([i * var_dict[d] for d in var_dict]) <= 22
 
 
 
