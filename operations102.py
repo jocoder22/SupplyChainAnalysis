@@ -33,10 +33,12 @@ print(f'Objective = {plp.value(model.objective)}')
 
 
 # shadow price and slack
-# slack = 0, then constraint is binding
+# if slack = 0, then the constraint is binding
 # changing binding constraint will change the result of the objective function and solution
 
 o = [{'name': name, 'Shadow Price': c.pi, 'Slack': c.slack}
         for name, c in model.constraints.items()]
 
 print(pd.DataFrame(o))
+
+
