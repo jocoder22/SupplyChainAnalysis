@@ -35,12 +35,13 @@ model2 = ch.LpProblem('Maximium Profit', ch.LpMaximize)
 model2 += ch.lpSum(cost[i] * var_dict[i] for i in bread)
 
 for i in space:
-    model2 += ch.lpSum([i * var_dict[d] for d in var_dict]) <= 30
+    model2 += ch.lpSum([i * var_dict[d] for d in bread]) <= 30
 for i in demand:
-    model2 += ch.lpSum([i * var_dict[d] for d in var_dict]) <= 60
+    model2 += ch.lpSum([i * var_dict[d] for d in bread]) <= 60
 for i in discount:
-    model2 += ch.lpSum([i * var_dict[d] for d in var_dict]) <= 22
+    model2 += ch.lpSum([i * var_dict[d] for d in bread]) <= 22
 
+print("#########################################################")
 model2.solve()
 print(f'Status: {ch.LpStatus[model2.status]}')
 for v in model2.variables():
