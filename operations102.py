@@ -1,4 +1,5 @@
 import pulp as plp
+import pandas as pd 
 sp = '\n\n'
 
 iron = ['A', 'B', 'C', 'D']
@@ -21,8 +22,7 @@ model += plp.lpSum([price[i] * x[i] for i in iron])
 model += plp.lpSum([lbsdict[i] * x[i] for i in iron]) == 1000
 model += plp.lpSum([magdict[i] * x[i] for i in iron]) >= 4.5
 model += plp.lpSum([sildict[i] * x[i] for i in iron]) >= 32.5
-for s in sil: 
-    model += plp.lpSum([s * x[i] for i in iron]) <= 55.0
+model += plp.lpSum([sildict[i] * x[i] for i in iron]) <= 55.0
 
 model.solve()
 print(f'Status: {plp.LpStatus[model.status]}')
@@ -30,3 +30,8 @@ for v in model.variables():
     print(f'{v.name} = {v.varValue}')
 
 print(f'Objective = {plp.value(model.objective)}')
+
+o = [{'name': name, 'Shadow Price': c.pi, 'Slack': c.slack}
+        for name, c in model.constraints.items()]
+
+print(pd.DataFrame(o))
