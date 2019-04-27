@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from random import normalvariate as nmv
 from pulp import *
+plt.style.use('ggplot')
 
 sp = '\n\n'
 
