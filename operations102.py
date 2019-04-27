@@ -34,6 +34,7 @@ print(f'Objective = {plp.value(model.objective)}')
 
 # shadow price and slack
 # if slack = 0, then the constraint is binding
+# if slack > 0, then non-binding constraint
 # changing binding constraint will change the result of the objective function and solution
 
 o = [{'name': name, 'Shadow Price': c.pi, 'Slack': c.slack}
