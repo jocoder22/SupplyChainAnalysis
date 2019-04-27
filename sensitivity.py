@@ -1,4 +1,5 @@
 import pandas as pd 
+import matplotlib.pyplot as plt
 from random import normalvariate as nmv
 from pulp import *
 
@@ -68,7 +69,16 @@ for t in range(100):
     output.append(sensally())
 
 df = pd.DataFrame(output)
-
+print(df.head())
 for item in house:
     print(" ", end=sp)
     print(df[item].value_counts(), sep=sp)
+
+
+plt.subplot(131)
+plt.hist(df['A'])
+plt.subplot(132)
+plt.hist(df['B'])
+plt.subplot(133)
+plt.hist(df['C'])
+plt.show()
