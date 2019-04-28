@@ -50,9 +50,10 @@ for t in range(100):
 
 df = pd.DataFrame(output)
 print(df.head())
-for item in house:
-    print(" ", end=sp)
-    print(df[item].value_counts(), sep=sp)
+
+# for item in house:
+#     print(" ", end=sp)
+#     print(df[item].value_counts(), sep=sp)
 
 
 # Plot the results
