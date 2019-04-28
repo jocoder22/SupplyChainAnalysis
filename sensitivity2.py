@@ -28,7 +28,7 @@ def sensally2():
 
     rdm = nmv(0.5, 0.5)
     # Define the objective function and add random variable
-    model += plp.lpSum([(costdict[i] + rdm) * y[i] for i in house])
+    model += plp.lpSum([costdict[i]  * y[i] for i in house])
 
     # Define the constraints
     model += plp.lpSum([(spacedict[i] + rdm) * y[i] for i in house]) <= 50
