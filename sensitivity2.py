@@ -57,9 +57,10 @@ print(df.head())
 
 
 # Plot the results
-fig, axes = plt.subplots(1,3, sharex=True, sharey=True)
+fig, axes = plt.subplots(1,4, sharey=True)
 
-for item, (idx, ax) in zip(house, enumerate(axes.flatten())):
+for item, (idx, ax) in zip(df.columns, enumerate(axes.flatten())):
     ax.hist(df[item],  color=plt.cm.Paired(idx/6.))
+    ax.set_xlabel(item)
 
 plt.show()
