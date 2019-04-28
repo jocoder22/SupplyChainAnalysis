@@ -62,5 +62,8 @@ fig, axes = plt.subplots(1,4, sharey=True)
 for item, (idx, ax) in zip(df.columns, enumerate(axes.flatten())):
     ax.hist(df[item],  color=plt.cm.Paired(idx/6.))
     ax.set_xlabel(item)
+    if idx == 0:
+        ax.set_ylabel('Number of Simulations')
+    
 
 plt.show()
