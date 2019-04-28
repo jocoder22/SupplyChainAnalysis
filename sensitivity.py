@@ -76,6 +76,7 @@ for item in house:
     print(df[item].value_counts(), sep=sp)
 
 
+# Plot the results
 fig, axes = plt.subplots(1,3, sharex=True, sharey=True)
 
 for item, (idx, ax) in zip(house, enumerate(axes.flatten())):
